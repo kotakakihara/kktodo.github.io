@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+　　　　　<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Vue App</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="manifest" href="manifest.json">
+    </head>
+    <body>
+        <button class="add-button"　type="text">ホーム画面に追加</button>
+        <div id="app" class="container">
+            <h2>
+                <button @click="purge">Purge</button>
+                My Todos
+                <span class="info">({{remaining.length}}/{{todos.length}})</span>
+            </h2>
+            <ul>
+                <li v-for="(todo,index) in todos">
+                    <input type="checkbox" v-model="todo.isDone">
+                    <span :class="{done:todo.isDone}">{{todo.title}}</span>
+                    <span @click ="deleteItem(index)" class="command">[X]</span>
+                </li>
+                <li v-show="!todos.length">You Finished!!</li>
+            </ul>
+            <form @submit.prevent="addItem">
+                <input type="text" v-model="newItem">
+                <input type="submit" value="add">
+            </form>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <!-- ServiceWorkerの登録 -->
+        <script>
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js')
+                .then((reg) => {
+                    console.log('Service worker registered.', reg);
+                }).catch(function(err) {
+                  console.log('サービスワーカーの登録ができませんでした：', err);
+                });
+            }
+        </script>
+            <script src="js/main.js"></script>
+    </body>
+</html>

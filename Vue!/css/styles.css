@@ -1,0 +1,46 @@
+body{
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.add-button {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+}
+.container{
+    width: 300px;
+    margin: auto;
+}
+
+#app h2{
+    font-size: 30px;
+    border-bottom: 1px solid #ddd;
+    padding:16px 0;
+}
+#app li{
+    line-height: 1.5;
+}
+#app input[type="text"]{
+    padding: 2px;
+}
+.command{
+    font-size: 14px;
+    cursor: pointer;
+    color: aqua;
+}
+#app ul{
+    list-style: none;
+}
+
+#app li > span.done{
+    text-decoration: line-through;
+    color: #bbb;
+}
+.info {
+    color: #bbb;
+    font-size: 12px;
+    font-weight: normal;
+}
+#app h2 > button{
+   float: right;
+}
