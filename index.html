@@ -3,17 +3,29 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-　　　　　<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>My Vue App</title>
         <link rel="stylesheet" href="css/styles.css">
         <link rel="manifest" href="manifest.json">
+        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+        <script>
+        window.OneSignal = window.OneSignal || [];
+        OneSignal.push(function() {
+            OneSignal.init({
+            appId: "a1aa2d0b-9131-4171-b834-341d68d50bdb",
+            notifyButton: {
+                enable: true,
+            },
+            });
+        });
+        </script>
     </head>
     <body>
         <button class="add-button"　type="text">ホーム画面に追加</button>
         <div id="app" class="container">
             <h2>
                 <button @click="purge">Purge</button>
-                My Todos
+                To Do!
                 <span class="info">({{remaining.length}}/{{todos.length}})</span>
             </h2>
             <ul>
