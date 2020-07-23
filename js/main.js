@@ -28,8 +28,12 @@ addBtn.addEventListener('click', (e) => {
     });
 });
 });
+window.addEventListener('appinstalled', (evt) => {
+  // Log install to analytics
+  console.log('INSTALL: Success');
+});
 
-    var vm = new Vue({
+    let vm = new Vue({
       el: '#app',
       data: {
         newItem: '',
