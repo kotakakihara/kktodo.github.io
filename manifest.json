@@ -10,7 +10,7 @@
         "sizes":"512x512",
         "type": "image/png"
       }],
-    "start_url": "https://kotakakihara.github.io/kktodo.github.io/Vue!/index.html?utm_source=homescreen",
+    "start_url": "https://kotakakihara.github.io/kktodo.github.io/index.html?utm_source=homescreen",
     "display": "standalone",
     "background_color": "#FFFFFF",
     "theme_color": "#FFFFFF"
