@@ -1,6 +1,9 @@
 body{
     font-size: 16px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: black;
+    color: chartreuse;
+    text-shadow:0 0 2px rgb(213, 255, 171);
 }
 .add-button {
     position: absolute;
@@ -11,35 +14,59 @@ body{
     width: 300px;
     margin: auto;
 }
-
 #app h2{
-    font-size: 30px;
-    border-bottom: 1px solid #ddd;
+    font-size: 40px;
+    border-bottom: 2px solid #ddd;
     padding:16px 0;
+}
+#app h2 i{
+    margin-left: 50px;
+    text-shadow: none;
+}
+#app ul{
+    margin-bottom: 20px;
+    list-style: none;
 }
 #app li{
     line-height: 1.5;
+    font-size: larger;
+    margin-bottom: 10px;
+}
+#app form{
+    text-align: center;
 }
 #app input[type="text"]{
     padding: 2px;
+    border-radius: 10px;
+}
+#app input:focus {
+    box-shadow: 0 0 10px 0 rgba(255,153,0,1);
+    border: 2px solid #FFF !important;
+    border-radius: 10px;
+    outline: 0;
+}
+#app .add-btn{
+    background-color: slategray;
+    color: #FFF;
+    padding: 3px 15px;
+    text-align: center;
+    border-radius: 20px;
 }
 .command{
     font-size: 14px;
     cursor: pointer;
     color: aqua;
 }
-#app ul{
-    list-style: none;
-}
-
 #app li > span.done{
     text-decoration: line-through;
     color: #bbb;
+    text-shadow: none;
 }
 .info {
     color: #bbb;
-    font-size: 12px;
-    font-weight: normal;
+    font-size: 14px;
+    font-weight: lighter;
+    font-family: 'Courier New', Courier, monospace ;
 }
 #app h2 > button{
    float: right;

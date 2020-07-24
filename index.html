@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>My Vue App</title>
         <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/title.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
         <link rel="manifest" href="manifest.json">
         <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
         <script>
@@ -24,21 +26,21 @@
         <button class="add-button"　type="text">ホーム画面に追加</button>
         <div id="app" class="container">
             <h2>
-                <button @click="purge">Purge</button>
                 To Do!
                 <span class="info">({{remaining.length}}/{{todos.length}})</span>
+                <i class="fas fa-trash-alt" style="color: orange;" @click="purge"></i>
             </h2>
             <ul>
                 <li v-for="(todo,index) in todos">
                     <input type="checkbox" v-model="todo.isDone">
                     <span :class="{done:todo.isDone}">{{todo.title}}</span>
-                    <span @click ="deleteItem(index)" class="command">[X]</span>
+                    <span @click ="deleteItem(index)" class="command"><i class="fas fa-feather-alt"></i></span>
                 </li>
                 <li v-show="!todos.length">You Finished!!</li>
             </ul>
             <form @submit.prevent="addItem">
                 <input type="text" v-model="newItem">
-                <input type="submit" value="add">
+                <input class="add-btn" type="submit" value="Add">
             </form>
         </div>
 
