@@ -36,7 +36,8 @@ window.addEventListener('appinstalled', (evt) => {
       el: '#app',
       data: {
         newItem: '',
-        todos: []
+        todos: [],
+        selected: ''
       },
       watch:{
           todos:{
