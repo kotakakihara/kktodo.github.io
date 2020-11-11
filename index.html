@@ -40,6 +40,7 @@
                         <option>NextSP</option>
                         <option>Someday</option>
                     </select>
+　　　　　　　　　　　  <span>{{ selected }}:</span>
                     <span :class="{done:todo.isDone}">{{todo.title}}</span>
                     <span @click ="deleteItem(index)" class="command"><i class="fas fa-feather-alt"></i></span>
                 </li>
