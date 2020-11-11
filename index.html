@@ -33,14 +33,14 @@
             <ul>
                 <li v-for="(todo,index) in todos">
                     <input type="checkbox" v-model="todo.isDone">
-                    <select v-model="selected">
+<!--                     <select v-model="selected">
                         <option disabled value="">Select one！</option>
                         <option>Today</option>
                         <option>ThisSP</option>
                         <option>NextSP</option>
                         <option>Someday</option>
                     </select>
-　　　　　　　　　　　  <span>{{ selected }}:</span>
+　　　　　　　　　　　  <span>{{ selected }}:</span> -->
                     <span :class="{done:todo.isDone}">{{todo.title}}</span>
                     <span @click ="deleteItem(index)" class="command"><i class="fas fa-feather-alt"></i></span>
                 </li>
