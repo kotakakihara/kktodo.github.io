@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:700);
+
 body{
     font-size: 16px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -11,7 +13,11 @@ body{
     left: 1px;
 }
 .container{
-    width: 300px;
+    display: flex;
+    min-width: 300px;
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
     margin: auto;
 }
 #app h2{
@@ -24,6 +30,9 @@ body{
     text-shadow: none;
 }
 #app ul{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
     margin-bottom: 20px;
     list-style: none;
 }
@@ -71,3 +80,91 @@ body{
 #app h2 > button{
    float: right;
 }
+
+.today {
+    color: red;
+    text-shadow:0 0 3px rgb(255, 95, 95);
+}
+.this-sp {
+    color: yellow;
+    text-shadow:0 0 2.5px rgba(253, 255, 136, 0.603);
+}
+.next-sp {
+    color:greenyellow;
+    text-shadow:0 0 2.5px greenyellow;
+}
+.someday {
+    color: blue;
+    text-shadow:0 0 2.5px blue;
+}
+
+/* Progress-Circle */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif, Arial, Helvetica;
+}
+
+.player {
+    width: 100px;
+    height: 100px;
+    background: #eee;
+    position: relative;
+    border-radius: 50%;
+    overflow: visible;
+    margin: 80px auto;
+}
+
+.player:hover {
+    opacity: .8;
+}
+
+.left-side {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50%;    
+    border: 2px solid #eee;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    transform: rotate(45deg);
+}
+
+.left-side.fill {
+    border-color: transparent;
+    border-left-color: #4beade;
+    border-bottom-color: #4beade;
+}
+
+.right-side {
+    transform: rotate(45deg);
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50%;    
+    border: 2px solid #4beade;
+    border-left-color: #eee;
+    border-bottom-color: #eee;
+}
+
+.player-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #4beade;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.player-title {
+    position: absolute;
+    left: 0; right: 0;
+    top: calc(50% + 55px);
+    text-align: center;
+    color: #999;
+}
+

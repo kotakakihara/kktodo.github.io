@@ -1,69 +1,83 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Vue App</title>
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="css/title.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-        <link rel="manifest" href="manifest.json">
-        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-        <script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Vue App</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <!-- <link rel="manifest" href="manifest.json">
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
         window.OneSignal = window.OneSignal || [];
-        OneSignal.push(function() {
+        OneSignal.push(function () {
             OneSignal.init({
-            appId: "a1aa2d0b-9131-4171-b834-341d68d50bdb",
-            notifyButton: {
-                enable: true,
-            },
+                appId: "a1aa2d0b-9131-4171-b834-341d68d50bdb",
+                notifyButton: {
+                    enable: true,
+                },
             });
         });
-        </script>
-    </head>
-    <body>
-        <button class="add-button"　type="text">ホーム画面に追加</button>
-        <div id="app" class="container">
-            <h2>
-                To Do!
-                <span class="info">({{remaining.length}}/{{todos.length}})</span>
-                <i class="fas fa-trash-alt" style="color: orange;" @click="purge"></i>
-            </h2>
-            <ul>
-                <li v-for="(todo,index) in todos">
-                    <input type="checkbox" v-model="todo.isDone">
-<!--                     <select v-model="selected">
-                        <option disabled value="">Select one！</option>
-                        <option>Today</option>
-                        <option>ThisSP</option>
-                        <option>NextSP</option>
-                        <option>Someday</option>
-                    </select>
-　　　　　　　　　　　  <span>{{ selected }}:</span> -->
-                    <span :class="{done:todo.isDone}">{{todo.title}}</span>
-                    <span @click ="deleteItem(index)" class="command"><i class="fas fa-feather-alt"></i></span>
-                </li>
-                <li v-show="!todos.length">You Finished!!</li>
-            </ul>
-            <form @submit.prevent="addItem">
-                <input type="text" v-model="newItem">
-                <input class="add-btn" type="submit" value="Add">
-            </form>
-        </div>
+    </script> -->
+</head>
 
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-        <!-- ServiceWorkerの登録 -->
-        <script>
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('sw.js')
-                .then((reg) => {
-                    console.log('Service worker registered.', reg);
-                }).catch(function(err) {
-                  console.log('サービスワーカーの登録ができませんでした：', err);
-                });
-            }
-        </script>
-            <script src="js/main.js"></script>
-    </body>
+<body>
+    <div id="app" class="container">
+        <h2>
+            To Do!
+            <span class="info">({{remaining.length}}/{{todos.length}})</span>
+            <div class="player">
+                <div class="progress">
+                    <div class="right-side"></div>
+                    <div class="left-side"></div>
+                </div>
+                <div class="player-text">{{remaining.length/todos.length * 100}}%</div>
+            </div>
+            <i class="fas fa-trash-alt" style="color: orange;" @click="purge"></i>
+        </h2>
+        <draggable tag="ul">
+            <li v-for="(todo,index) in todos" :key="todo.index">
+                <!-- <select v-model="todo.selected">
+                    <option disabled value="">Select one！</option>
+                    <option>Today</option>
+                    <option>ThisSP</option>
+                    <option>NextSP</option>
+                    <option>Someday</option>
+                </select>
+                <span>{{ todo.selected }}:</span> -->
+                <span id="todo.id" @click="todo.id = selectDeadline(todo.id)"
+                    v-bind:class="{'today': todo.id === 0, 'this-sp': todo.id === 1, 'next-sp': todo.id === 2, 'someday': todo.id === 3}">{{todo.selected[todo.id]}}</span>
+                <input type="checkbox" v-model="todo.isDone">
+                <span :class="{done:todo.isDone}">{{todo.title}}</span>
+                <span @click="deleteItem(index)" class="command"><i class="fas fa-feather-alt"></i></span>
+            </li>
+            <li v-show="!todos.length">You Finished!!</li>
+        </draggable>
+        <form @submit.prevent="addItem">
+            <input type="text" v-model="newItem">
+            <input class="add-btn" type="submit" value="Add">
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- ServiceWorkerの登録 -->
+    <script>
+        // if ('serviceWorker' in navigator) {
+        //     navigator.serviceWorker.register('sw.js')
+        //         .then((reg) => {
+        //             console.log('Service worker registered.', reg);
+        //         }).catch(function (err) {
+        //             console.log('サービスワーカーの登録ができませんでした：', err);
+        //         });
+        // }
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.23.2/vuedraggable.umd.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
 </html>
