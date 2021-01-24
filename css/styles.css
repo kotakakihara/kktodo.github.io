@@ -24,10 +24,15 @@ body{
     font-size: 40px;
     border-bottom: 2px solid #ddd;
     padding:16px 0;
+    margin-bottom: 16px;
+    text-align: center;
 }
 #app h2 i{
-    margin-left: 50px;
+    margin-left: 10px;
     text-shadow: none;
+}
+#app i:hover {
+    opacity: 0.5;
 }
 #app ul{
     display: flex;
@@ -41,12 +46,19 @@ body{
     font-size: larger;
     margin-bottom: 10px;
 }
+#app li:active {
+    border-bottom: #FFF;
+}
 #app form{
     text-align: center;
 }
 #app input[type="text"]{
+    width: 50%;
     padding: 2px;
     border-radius: 10px;
+    background: #FFF;
+    height: 22px;
+    box-sizing: border-box;
 }
 #app input:focus {
     box-shadow: 0 0 10px 0 rgba(255,153,0,1);
@@ -60,6 +72,7 @@ body{
     padding: 3px 15px;
     text-align: center;
     border-radius: 20px;
+    box-sizing: border-box;
 }
 .command{
     font-size: 14px;
@@ -81,90 +94,36 @@ body{
    float: right;
 }
 
+.deadline {
+    border: solid 2px white;
+    border-radius: 10px;
+}
+.deadline:hover {
+    opacity: 0.8;
+}
 .today {
-    color: red;
-    text-shadow:0 0 3px rgb(255, 95, 95);
+    color: #ff0066;
+    text-shadow:0 0 3px rgb(255, 95, 130);
+    border-color: #ff0066;
 }
 .this-sp {
     color: yellow;
     text-shadow:0 0 2.5px rgba(253, 255, 136, 0.603);
+    border-color: yellow;
 }
 .next-sp {
     color:greenyellow;
     text-shadow:0 0 2.5px greenyellow;
+    border-color: greenyellow;
 }
 .someday {
-    color: blue;
-    text-shadow:0 0 2.5px blue;
+    color: #0099ff;
+    text-shadow:0 0 2.5px #0099ff;
+    /* border-color: #0099ff; */
+    border: 0;
 }
 
 /* Progress-Circle */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+.progress-circle {
+    font-size: 16px;
 }
-
-body {
-    margin: 0;
-    font-family: sans-serif, Arial, Helvetica;
-}
-
-.player {
-    width: 100px;
-    height: 100px;
-    background: #eee;
-    position: relative;
-    border-radius: 50%;
-    overflow: visible;
-    margin: 80px auto;
-}
-
-.player:hover {
-    opacity: .8;
-}
-
-.left-side {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    border-radius: 50%;    
-    border: 2px solid #eee;
-    border-left-color: transparent;
-    border-bottom-color: transparent;
-    transform: rotate(45deg);
-}
-
-.left-side.fill {
-    border-color: transparent;
-    border-left-color: #4beade;
-    border-bottom-color: #4beade;
-}
-
-.right-side {
-    transform: rotate(45deg);
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    border-radius: 50%;    
-    border: 2px solid #4beade;
-    border-left-color: #eee;
-    border-bottom-color: #eee;
-}
-
-.player-text {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  color: #4beade;
-  font-weight: 700;
-  font-size: 20px;
-}
-
-.player-title {
-    position: absolute;
-    left: 0; right: 0;
-    top: calc(50% + 55px);
-    text-align: center;
-    color: #999;
-}
-

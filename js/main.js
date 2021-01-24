@@ -37,6 +37,7 @@
   let vm = new Vue({
     el: '#app',
     components: { draggable },
+    vuetify: new Vuetify(),
     data: {
       newItem: '',
       todos: [],
@@ -56,7 +57,7 @@
       addItem: function () {
         var item = {
           id: 0,
-          selected: ["Today", "ThisSP", "NextSP", "Someday"],
+          selected: ["Today", "ThisSP", "NextSP", "Someday..."],
           title: this.newItem,
           isDone: false
         };
@@ -78,8 +79,11 @@
     computed: {
       remaining: function () {
         return this.todos.filter(function (todo) {
-          return todo.isDone;
+          return !todo.isDone;
         });
+      },
+      progressNum: function () {
+        return (100 - Math.round(this.remaining.length / this.todos.length * 100) || '0') + '%'
       }
     }
   });
