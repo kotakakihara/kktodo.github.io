@@ -12,19 +12,6 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
         integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-    <!-- <link rel="manifest" href="manifest.json">
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-    <script>
-        window.OneSignal = window.OneSignal || [];
-        OneSignal.push(function () {
-            OneSignal.init({
-                appId: "a1aa2d0b-9131-4171-b834-341d68d50bdb",
-                notifyButton: {
-                    enable: true,
-                },
-            });
-        });
-    </script> -->
 </head>
 
 <body>
@@ -37,12 +24,14 @@
                 {{progressNum}}
             </v-progress-circular>
             <i class="fas fa-trash-alt" style="color: orange;" @click="purge"></i>
+            <i class="fas fa-filter" style="color: deepskyblue;" @click="sortByCategory"></i>
         </h2>
         <draggable tag="ul">
             <li v-for="(todo,index) in todos" :key="todo.index">
                 <span id="todo.id" @click="todo.id = selectDeadline(todo.id)" class="deadline"
-                    v-bind:class="{'today': todo.id === 0, 'this-sp': todo.id === 1, 'next-sp': todo.id === 2, 'someday': todo.id === 3}">{{todo.selected[todo.id]}}</span>
+                    v-bind:class="{'today': todo.id === 0, 'private': todo.id === 1, 'this-sp': todo.id === 2, 'next-sp': todo.id === 3, 'someday': todo.id === 4}">{{todo.selected[todo.id]}}</span>
                 <input type="checkbox" v-model="todo.isDone">
+                <label for="todo.checkId"></label>
                 <span :class="{done:todo.isDone}">{{todo.title}}</span>
                 <span @click="deleteItem(index)" class="command"><i class="fas fa-feather-alt"></i></span>
             </li>
@@ -57,17 +46,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
     <!-- ServiceWorkerの登録 -->
-    <script>
-        // if ('serviceWorker' in navigator) {
-        //     navigator.serviceWorker.register('sw.js')
-        //         .then((reg) => {
-        //             console.log('Service worker registered.', reg);
-        //         }).catch(function (err) {
-        //             console.log('サービスワーカーの登録ができませんでした：', err);
-        //         });
-        // }
-
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.23.2/vuedraggable.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>

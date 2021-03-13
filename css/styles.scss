@@ -1,0 +1,200 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:700);
+
+body{
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: black;
+    color: chartreuse;
+    text-shadow:0 0 2px rgb(213, 255, 171);
+}
+.add-button {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+}
+.container{
+    display: flex;
+    min-width: 300px;
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+#app h2{
+    font-size: 40px;
+    border-bottom: 2px solid #ddd;
+    padding:16px 0;
+    margin-bottom: 16px;
+    text-align: center;
+}
+#app h2 i{
+    margin-left: 10px;
+    text-shadow: none;
+}
+#app i:hover {
+    opacity: 0.5;
+}
+#app ul{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    margin-bottom: 20px;
+    list-style: none;
+}
+#app li{
+    line-height: 1.5;
+    font-size: larger;
+    margin-bottom: 10px;
+}
+#app li:active {
+    border-bottom: #FFF;
+}
+#app form{
+    text-align: center;
+}
+#app input[type="text"]{
+    width: 50%;
+    padding: 2px;
+    border-radius: 10px;
+    background: #FFF;
+    height: 22px;
+    box-sizing: border-box;
+}
+#app input:focus {
+    box-shadow: 0 0 10px 0 rgba(255,153,0,1);
+    border: 2px solid #FFF !important;
+    border-radius: 10px;
+    outline: 0;
+}
+#app .add-btn{
+    background-color: slategray;
+    color: #FFF;
+    padding: 3px 15px;
+    text-align: center;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+.command{
+    font-size: 14px;
+    cursor: pointer;
+    color: aqua;
+}
+#app li > span.done{
+    text-decoration: line-through;
+    color: #bbb;
+    text-shadow: none;
+}
+.info {
+    color: #bbb;
+    font-size: 14px;
+    font-weight: lighter;
+    font-family: 'Courier New', Courier, monospace ;
+}
+#app h2 > button{
+   float: right;
+}
+
+.deadline {
+    border: solid 2px white;
+    border-radius: 10px;
+}
+.deadline:hover {
+    opacity: 0.8;
+}
+.today {
+    color: #ff0066;
+    text-shadow:0 0 3px rgb(255, 95, 130);
+    border-color: #ff0066;
+}
+.this-sp {
+    color: yellow;
+    text-shadow:0 0 2.5px rgba(253, 255, 136, 0.603);
+    border-color: yellow;
+}
+.next-sp {
+    color:greenyellow;
+    text-shadow:0 0 2.5px greenyellow;
+    border-color: greenyellow;
+}
+.someday {
+    color: #0099ff;
+    text-shadow:0 0 2.5px #0099ff;
+    /* border-color: #0099ff; */
+    border: 0;
+}
+.private {
+  color: pink;
+  text-shadow: 0 0 3px #ff5f82;
+  border-color: #e04784;
+}
+
+/* Progress-Circle */
+.progress-circle {
+    font-size: 16px;
+}
+
+/* checkbox */
+// @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+// /*Page styles*/
+// html { height: 100%; }
+
+// body {
+//   height: 100%;
+//   margin: 0;
+//   background: #363636;
+//   display: -webkit-flex;
+//   display: flex;
+//   align-items: center;
+// }
+
+// .boxes {
+//   margin: auto;
+//   padding: 50px;
+//   background: #484848;
+// }
+
+// /*Checkboxes styles*/
+// input[type="checkbox"] { display: none; }
+
+// input[type="checkbox"] + label {
+//   display: block;
+//   position: relative;
+//   padding-left: 35px;
+//   margin-bottom: 20px;
+//   font: 14px/20px 'Open Sans', Arial, sans-serif;
+//   color: #ddd;
+//   cursor: pointer;
+//   -webkit-user-select: none;
+//   -moz-user-select: none;
+//   -ms-user-select: none;
+// }
+
+// input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+
+// input[type="checkbox"] + label:before {
+//   content: '';
+//   display: block;
+//   width: 20px;
+//   height: 20px;
+//   border: 1px solid #6cc0e5;
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   opacity: .6;
+//   -webkit-transition: all .12s, border-color .08s;
+//   transition: all .12s, border-color .08s;
+// }
+
+// input[type="checkbox"]:checked + label:before {
+//   width: 10px;
+//   top: -5px;
+//   left: 5px;
+//   border-radius: 0;
+//   opacity: 1;
+//   border-top-color: transparent;
+//   border-left-color: transparent;
+//   -webkit-transform: rotate(45deg);
+//   transform: rotate(45deg);
+// }
+
